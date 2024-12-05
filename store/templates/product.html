@@ -7,23 +7,23 @@
 <div class="container py-5">
 	<div class="row mt-5">
 	<div class="col-10 mx-auto col-md-6 my-3">
-		<img src="{% static 'img/product-1.png' %}" alt="">
+		<img src="{{product.image.url}}" alt="{{product.name}}">
 	</div>
 	<div class="col-10 mx-auto col-md-6 my-3">
 		<div>
 		<h1 class="product_title">Mobile1</h1>
 		<h5 class="text-info font-italic mb-3">
-			<span class="mr-1">$</span> 123
+			<span class="mr-1">$</span> {{product.price}}
 		</h5>
 		<p class="product_description">Product Description</p>
-		<p class="text-justify product_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
+		<p class="text-justify product_text">{{product.description}}</p>
+		{% if product.stock <= 0  %}
 		<p class="text-justify product_text"><b>Out of Stock</b></p>
-
+		{% else %}
 		<a href="#">
 			<button type="button" name="button" class="btn btn-secondary">Add to Cart</button>
 		</a>
-
+		{% endif %}
 		</div>
 	</div>
 	</div>

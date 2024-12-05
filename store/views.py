@@ -23,8 +23,13 @@ def home(request, category_slug = None):
 
 
 
-def product_page(request):
-    return render(request,'product.html')
+def product_page(request, category_slug, product_slug):
+    try:
+        product = Product.objects.get(slug = product_slug, category__slug = category_slug)
+    except Exception as e :
+        raise e 
+    
+    return render(request,'product.html', {'products': product})
 
 def cart_detail(request):
     return render(request,'cart.html')
