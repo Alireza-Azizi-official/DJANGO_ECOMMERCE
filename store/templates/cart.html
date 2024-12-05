@@ -1,187 +1,90 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- Start Main -->
+	<!--<div class="text-center">
+	<br>
+	<h1 class="text-center product_title">Your shopping cart is empty</h1>
+	<br>
+	<p class="text-center">
+		Please click <a href="#">here</a> to continue shopping
+	</p>
+	</div>-->
+	<div class="text-center">
+	<br>
+	<div class="text-center product_title">
+		Your shopping cart
+	</div>
+	</div>
+	<div class="row mx-auto">
+	<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+		<table class="table cart_table">
+		<thead class="cart_thead">
+			<tr>
+			<th colspan="4">
+				Your items
+			</th>
+			</tr>
+		</thead>
+		<!-- start loop-->
+			<tr>
+			<td>
+				<a href="#">
+				<img src="img/product-1.png" width="100" height="100" alt="">
+				</a>
+			</td>
+			<td class="text-left">
+				Mobile1
+				<br>
+				SKU: 254
+				<br>
+				Unit Price: 123
+				<br>
+				Qty: 4 x 123
+			</td>
+			<td>
+				$10000
+			</td>
+			<td>
+				&nbsp;<a href="#"><i class="fas fa-plus-circle cart_icon"></i></a>
+				&nbsp;<a href="#"><i class="fas fa-minus-circle cart_icon"></i></a>
+				&nbsp;<a href="#"><i class="fas fa-trash-alt cart_icon"></i></a>
+			</td>
+			</tr>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/base.css">
-
-    <title>Ecommerce Shop</title>
-  </head>
-  <body>
-
-	<!-- Start Navbar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-dark">
-	  <a href="/" class="navbar-brand"><i class="fas fa-store text-warning fa-2x"></i></a>
-	  <button type="button" class="navbar-toggler bg-light" data-toggle="collapse"
-	  data-target="#nav" name="button"><span class="navbar-toggler-icon"></span></button>
-	  <div class="collapse navbar-collapse justify-content-between" id="nav">
-	  <ul class="navbar-nav">
-		<li class="nav-item dropdown"><a class="nav-link text-light text-uppercase font-weight-bold px-3 dropdown-toggle"
-		  href="" data-toggle="dropdown">Categories</a>
-		  <div class="dropdown-menu">
-		  
-			<a class="dropdown-item" href="#">All Products</a>
-			<a class="dropdown-item" href="#">Category1</a>
-			<a class="dropdown-item" href="#">Category2</a>
-			<a class="dropdown-item" href="#">Category3</a>
-			<a class="dropdown-item" href="#">Category4</a>
-			<a class="dropdown-item" href="#">Category5</a>
-			
-		  </div>
-		</li>
-		<li class="nav-item"><a class="nav-link text-light text-uppercase font-weight-bold px-3" href="#">Contact</a></li>
-		<li class="nav-item"><a class="nav-link text-light text-uppercase font-weight-bold px-3" href="#">About</a></li>
-
-		  <!--<li class="nav-item dropdown">
-			<a class="nav-link text-light text-uppercase font-weight-bold px-3 dropdown-toggle" data-toggle="dropdown">
-			  Welcome, Asghar <i class="fas fa-user circle"></i>
-			</a>
-			<div class="dropdown-menu">
-			  <a class="dropdown-item" href="#">Order History</a>
-
-			</div>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link text-light text-uppercase font-weight-bold px-3" href="#">
-			  Sign Out <i class="fas fa-sign-out-alt"></i>
-			</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link text-light text-uppercase font-weight-bold px-3" href="#">
-			  Sign Up <i class="fas fa-user-plus"></i>
-			</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link text-light text-uppercase font-weight-bold px-3" href="#">
-			  Sign In <i class="fas fa-sign-in-alt"></i>
-			</a>
-		  </li>-->
-
-		<li class="nav-item">
-		  <a class="nav-link text-light text-uppercase font-weight-bold px-3" href="{% url 'cart_detail' %}">
-			<i class="fas fa-shopping-cart"></i>10
-		</a>
-	  </li>
-
-	  </ul>
-
-	  <form class="form-inline ml-3" action="#", method="GET">
-		<div class="input-group">
-		  <input type="text" name="title" class="form-control" placeholder="Search">
-		  <div class="input-group-append">
-			<button type="submit" class="btn btn-warning"><i class="fas fa-search"></i></button>
-		  </div>
-		</div>
-	  </form>
-	  </div>
-	</nav>
-	<!-- End Navbar -->
-	
-	
-	<!-- Start Main -->
-	  <!--<div class="text-center">
-		<br>
-		<h1 class="text-center product_title">Your shopping cart is empty</h1>
-		<br>
-		<p class="text-center">
-		  Please click <a href="#">here</a> to continue shopping
-		</p>
-	  </div>-->
-	  <div class="text-center">
-		<br>
-		<div class="text-center product_title">
-		  Your shopping cart
-		</div>
-	  </div>
-	  <div class="row mx-auto">
-		<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
-		  <table class="table cart_table">
-			<thead class="cart_thead">
-			  <tr>
-				<th colspan="4">
-				  Your items
+		</table>
+	</div>
+	<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+		<table class="table cart_table">
+		<thead class="cart_thead">
+			<tr>
+				<th>
+				Check out
 				</th>
-			  </tr>
+			</tr>
 			</thead>
-			<!-- start loop-->
-			  <tr>
+			<tbody>
+			<tr>
 				<td>
-				  <a href="#">
-					<img src="img/product-1.png" width="100" height="100" alt="">
-				  </a>
+				Please review your cart items before proceeding with the payment.
 				</td>
+			</tr>
+			<tr>
 				<td class="text-left">
-				  Mobile1
-				  <br>
-				  SKU: 254
-				  <br>
-				  Unit Price: 123
-				  <br>
-				  Qty: 4 x 123
+				Your total is: <strong>$1000</strong>
 				</td>
-				<td>
-				  $10000
-				</td>
-				<td>
-				  &nbsp;<a href="#"><i class="fas fa-plus-circle cart_icon"></i></a>
-				  &nbsp;<a href="#"><i class="fas fa-minus-circle cart_icon"></i></a>
-				  &nbsp;<a href="#"><i class="fas fa-trash-alt cart_icon"></i></a>
-				</td>
-			  </tr>
-
-		  </table>
+			</tr>
+			</tbody>
+		</table>
+		<div class="mx-auto">
+			<a href="#" style="text-decoration: none;">
+			<button type="button" class="btn btn-lg btn-block bg-dark text-white">
+				Continue Shopping
+			</button>
+			</a>
 		</div>
-		<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
-		  <table class="table cart_table">
-			<thead class="cart_thead">
-				<tr>
-				  <th>
-					Check out
-				  </th>
-				</tr>
-			  </thead>
-			  <tbody>
-				<tr>
-				  <td>
-					Please review your cart items before proceeding with the payment.
-				  </td>
-				</tr>
-				<tr>
-				  <td class="text-left">
-					Your total is: <strong>$1000</strong>
-				  </td>
-				</tr>
-			  </tbody>
-			</table>
-			<div class="mx-auto">
-			  <a href="#" style="text-decoration: none;">
-				<button type="button" class="btn btn-lg btn-block bg-dark text-white">
-				  Continue Shopping
-				</button>
-			  </a>
-			</div>
-		</div>
-	  </div>
-	<!-- End Main -->
+	</div>
+	</div>
+<!-- End Main -->
+{% endblock content %}
 
-
-	<!-- Start Footer -->
-	<footer class="bg-dark text-white mt-5 p-5">
-	  <div class="container">
-		<p class="lead text-center">Copyright &copy; 2021 Store</p>
-	  </div>
-	</footer>
-	<!-- End Fotter -->
-	
-    <!-- Optional JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
-</html>
