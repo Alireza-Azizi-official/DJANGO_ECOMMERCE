@@ -9,9 +9,9 @@
 		href="" data-toggle="dropdown">Categories</a>
 		<div class="dropdown-menu">
 		
-		<a class="dropdown-item" href= {% url "home" %}>All Products</a>
+		<a class="dropdown-item" href= "{% url 'home' %}">All Products</a>
 		{% for category in links %}
-		<a class="dropdown-item" href="{{category.get.url}}">{{link.name}}</a>
+			<a class="dropdown-item" href="{{category.get_url}}">{{category.name}}</a>
 		{% endfor %}
 		</div>
 	</li>
