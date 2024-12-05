@@ -19,7 +19,7 @@
 
 	<!-- Start Navbar -->
     <nav class="navbar navbar-expand-md navbar-light bg-dark">
-	  <a href="{% url 'home' %}" class="navbar-brand"><i class="fas fa-store text-warning fa-2x"></i></a>
+	  <a href= {% url "home" %} class="navbar-brand"><i class="fas fa-store text-warning fa-2x"></i></a>
 	  <button type="button" class="navbar-toggler bg-light" data-toggle="collapse"
 	  data-target="#nav" name="button"><span class="navbar-toggler-icon"></span></button>
 	  <div class="collapse navbar-collapse justify-content-between" id="nav">
@@ -28,7 +28,7 @@
 		  href="" data-toggle="dropdown">Categories</a>
 		  <div class="dropdown-menu">
 		  
-			<a class="dropdown-item" href="{% url 'home'%}">All Products</a>
+			<a class="dropdown-item" href= {% url "home" %}>All Products</a>
 			<a class="dropdown-item" href="#">Category1</a>
 			<a class="dropdown-item" href="#">Category2</a>
 			<a class="dropdown-item" href="#">Category3</a>
@@ -66,7 +66,7 @@
 		  </li>-->
 
 		<li class="nav-item">
-		  <a class="nav-link text-light text-uppercase font-weight-bold px-3" href="{% url 'cart_detail' %}">
+		  <a class="nav-link text-light text-uppercase font-weight-bold px-3" href={% url "cart_detail" %}>
 			<i class="fas fa-shopping-cart"></i>10
 		</a>
 	  </li>
