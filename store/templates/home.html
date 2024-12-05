@@ -17,7 +17,7 @@
 
 	<!-- Start Navbar -->
     <nav class="navbar navbar-expand-md navbar-light bg-dark">
-	  <a href="/" class="navbar-brand"><i class="fas fa-store text-warning fa-2x"></i></a>
+	  <a href="{% url 'home' %}" class="navbar-brand"><i class="fas fa-store text-warning fa-2x"></i></a>
 	  <button type="button" class="navbar-toggler bg-light" data-toggle="collapse"
 	  data-target="#nav" name="button"><span class="navbar-toggler-icon"></span></button>
 	  <div class="collapse navbar-collapse justify-content-between" id="nav">
@@ -26,7 +26,7 @@
 		  href="" data-toggle="dropdown">Categories</a>
 		  <div class="dropdown-menu">
 		  
-			<a class="dropdown-item" href="#">All Products</a>
+			<a class="dropdown-item" href="{% url 'home'%}">All Products</a>
 			<a class="dropdown-item" href="#">Category1</a>
 			<a class="dropdown-item" href="#">Category2</a>
 			<a class="dropdown-item" href="#">Category3</a>
@@ -106,10 +106,11 @@
 	  
 		<div class="row">
 		  <!--start loop  -->
+          {% for product in '12345678' %}
 		  <div class="col-9 mx-auto col-md-6 col-lg-3">
 			<div class="card mb-4" style="border-color: transparent;">
 			  <div class="p-4">
-				<a href="#">
+				<a href="{url 'product_page'}">
 				  <img src="img/product-1.png" class="card-img-top" alt="#">
 				</a>
 
@@ -124,149 +125,9 @@
 				</h5>
 			  </div>
 			</div>
+            {% endfor %}
 		  </div>
-		  
-		  <div class="col-9 mx-auto col-md-6 col-lg-3">
-			<div class="card mb-4" style="border-color: transparent;">
-			  <div class="p-4">
-				<a href="#">
-				  <img src="img/product-2.png" class="card-img-top" alt="#">
-				</a>
 
-			  </div>
-			  <div class="card-footer d-flex justify-content-between"
-			  style="background: transparent; border-color: transparent;">
-				<p class="font-weight-bold mb-0">
-				  Mobile2
-				</p>
-				<h5 class="text-info font-italic mb-0">
-				  <span class="mr-1">$</span> 123
-				</h5>
-			  </div>
-			</div>
-		  </div>
-		  
-		  <div class="col-9 mx-auto col-md-6 col-lg-3">
-			<div class="card mb-4" style="border-color: transparent;">
-			  <div class="p-4">
-				<a href="#">
-				  <img src="img/product-3.png" class="card-img-top" alt="#">
-				</a>
-
-			  </div>
-			  <div class="card-footer d-flex justify-content-between"
-			  style="background: transparent; border-color: transparent;">
-				<p class="font-weight-bold mb-0">
-				  Mobile3
-				</p>
-				<h5 class="text-info font-italic mb-0">
-				  <span class="mr-1">$</span> 123
-				</h5>
-			  </div>
-			</div>
-		  </div>
-		  
-		  <div class="col-9 mx-auto col-md-6 col-lg-3">
-			<div class="card mb-4" style="border-color: transparent;">
-			  <div class="p-4">
-				<a href="#">
-				  <img src="img/product-4.png" class="card-img-top" alt="#">
-				</a>
-
-			  </div>
-			  <div class="card-footer d-flex justify-content-between"
-			  style="background: transparent; border-color: transparent;">
-				<p class="font-weight-bold mb-0">
-				  Mobile4
-				</p>
-				<h5 class="text-info font-italic mb-0">
-				  <span class="mr-1">$</span> 123
-				</h5>
-			  </div>
-			</div>
-		  </div>
-		  
-		  <div class="col-9 mx-auto col-md-6 col-lg-3">
-			<div class="card mb-4" style="border-color: transparent;">
-			  <div class="p-4">
-				<a href="#">
-				  <img src="img/product-5.png" class="card-img-top" alt="#">
-				</a>
-
-			  </div>
-			  <div class="card-footer d-flex justify-content-between"
-			  style="background: transparent; border-color: transparent;">
-				<p class="font-weight-bold mb-0">
-				  Mobile5
-				</p>
-				<h5 class="text-info font-italic mb-0">
-				  <span class="mr-1">$</span> 123
-				</h5>
-			  </div>
-			</div>
-		  </div>
-		  
-		  <div class="col-9 mx-auto col-md-6 col-lg-3">
-			<div class="card mb-4" style="border-color: transparent;">
-			  <div class="p-4">
-				<a href="#">
-				  <img src="img/product-6.png" class="card-img-top" alt="#">
-				</a>
-
-			  </div>
-			  <div class="card-footer d-flex justify-content-between"
-			  style="background: transparent; border-color: transparent;">
-				<p class="font-weight-bold mb-0">
-				  Mobile6
-				</p>
-				<h5 class="text-info font-italic mb-0">
-				  <span class="mr-1">$</span> 123
-				</h5>
-			  </div>
-			</div>
-		  </div>
-		  
-		  <div class="col-9 mx-auto col-md-6 col-lg-3">
-			<div class="card mb-4" style="border-color: transparent;">
-			  <div class="p-4">
-				<a href="#">
-				  <img src="img/product-7.png" class="card-img-top" alt="#">
-				</a>
-
-			  </div>
-			  <div class="card-footer d-flex justify-content-between"
-			  style="background: transparent; border-color: transparent;">
-				<p class="font-weight-bold mb-0">
-				  Mobile7
-				</p>
-				<h5 class="text-info font-italic mb-0">
-				  <span class="mr-1">$</span> 123
-				</h5>
-			  </div>
-			</div>
-		  </div>
-		  
-		  <div class="col-9 mx-auto col-md-6 col-lg-3">
-			<div class="card mb-4" style="border-color: transparent;">
-			  <div class="p-4">
-				<a href="#">
-				  <img src="img/product-8.png" class="card-img-top" alt="#">
-				</a>
-
-			  </div>
-			  <div class="card-footer d-flex justify-content-between"
-			  style="background: transparent; border-color: transparent;">
-				<p class="font-weight-bold mb-0">
-				  Mobile8
-				</p>
-				<h5 class="text-info font-italic mb-0">
-				  <span class="mr-1">$</span> 123
-				</h5>
-			  </div>
-			</div>
-		  </div>
-		</div>
-		
 		<!--<div class="col-10 mx-auto my-2 text-center">
 		  <a href="#"class="btn btn-light btn-sm">1</a>
 		  <a href="#"class="btn btn-light btn-sm">2</a>
