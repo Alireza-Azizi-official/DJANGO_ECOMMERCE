@@ -29,7 +29,7 @@ def product_page(request, category_slug, product_slug):
     except Exception as e :
         raise e 
     
-    return render(request,'product.html', {'products': product})
+    return render(request,'product.html', {'product': product})
 
 def cart_detail(request):
     return render(request,'cart.html')
