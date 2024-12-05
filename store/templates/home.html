@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,8 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+    <link rel="stylesheet" href="{% static "css/cart.css" %}">
 
     <title>Ecommerce Shop</title>
   </head>
@@ -87,7 +88,7 @@
 	<!-- Start Main -->
 	  <div class="container-fluid">
 		<div class="row">
-		  <img style="width: 100%" src="img/image.jpg" alt="">
+		  <img style="width: 100%" src="{% static 'img/image.jpg' %}" alt="">
 		</div>
 	  </div>
 	  <div class="py-4">
@@ -111,7 +112,7 @@
 			<div class="card mb-4" style="border-color: transparent;">
 			  <div class="p-4">
 				<a href="{url 'product_page'}">
-				  <img src="img/product-1.png" class="card-img-top" alt="#">
+				  <img src="{% static 'img/product-1.png' %}" class="card-img-top" alt="#">
 				</a>
 
 			  </div>
