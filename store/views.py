@@ -11,7 +11,7 @@ def home(request, category_slug=None):
         category_slug = get_object_or_404(Category, slug = category_slug)
         products = Product.objects.filter(category = category_page, available = True)
     else:
-        prodcuts = Product.objects.all().filter(available = True)
+        products = Product.objects.all().filter(available = True)
     return render(request,'home.html',{'category_page': category_page, 'products': products})
 
 def product_page(request):
