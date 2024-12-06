@@ -2,14 +2,16 @@
 {% load static %}
 {% block content %}
 <!-- Start Main -->
-	<!--<div class="text-center">
+{% if not cart_items %}
+	<div class="text-center">
 	<br>
 	<h1 class="text-center product_title">Your shopping cart is empty</h1>
 	<br>
 	<p class="text-center">
-		Please click <a href="#">here</a> to continue shopping
+		Please click <a href="{% url 'home' %}">here</a> to continue shopping
 	</p>
-	</div>-->
+	</div>
+{% else %}
 	<div class="text-center">
 	<br>
 	<div class="text-center product_title">
@@ -27,31 +29,29 @@
 			</tr>
 		</thead>
 		<!-- start loop-->
+		{% for cart_item in cart_items %}
 			<tr>
-			<td>
-				<a href="#">
-				<img src="{% static 'img/product-1.png' %}" width="100" height="100" alt="">
-				</a>
-			</td>
-			<td class="text-left">
-				Mobile1
-				<br>
-				SKU: 254
-				<br>
-				Unit Price: 123
-				<br>
-				Qty: 4 x 123
-			</td>
-			<td>
-				$10000
-			</td>
-			<td>
-				&nbsp;<a href="#"><i class="fas fa-plus-circle cart_icon"></i></a>
-				&nbsp;<a href="#"><i class="fas fa-minus-circle cart_icon"></i></a>
-				&nbsp;<a href="#"><i class="fas fa-trash-alt cart_icon"></i></a>
-			</td>
+				<td>
+					<a href="#">
+						<img src="{{ cart_item.product.image.url }}" width="100" height="100" alt="">
+					</a>
+				</td>
+				<td class="text-left">
+					{{ cart_item.product.name }}<br>
+					SKU: {{ cart_item.product.name }}<br>
+					Unit Price: ${{ cart_item.product.price }}<br>
+					Qty: {{ cart_item.quantity }} x ${{ cart_item.product.price }}
+				</td>
+				<td>
+					${{ cart_item.sub_total }}
+				</td>
+				<td>
+					&nbsp;<a href="#"><i class="fas fa-plus-circle cart_icon"></i></a>
+					&nbsp;<a href="#"><i class="fas fa-minus-circle cart_icon"></i></a>
+					&nbsp;<a href="#"><i class="fas fa-trash-alt cart_icon"></i></a>
+				</td>
 			</tr>
-
+		{% endfor %}
 		</table>
 	</div>
 	<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
@@ -86,5 +86,6 @@
 	</div>
 	</div>
 <!-- End Main -->
+ {% endif %}
 {% endblock content %}
 
