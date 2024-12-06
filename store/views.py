@@ -68,11 +68,12 @@ def cart_detail(request, total=0, counter=0, cart_item=None):
     try:
         cart = Cart.objects.get(cart_id=_cart_id(request))
         cart_items = CartItem.objects.filter(cart=cart, active=True)
-        for cart_item in cart_items:
-            total += (cart_item.product.price * cart_item.quantity)
-            counter += cart_item.quantity
     except ObjectDoesNotExist:
-        cart_items = []  # اطمینان حاصل کنید که در صورت نداشتن سبد خرید، به درستی خالی باشد
+        cart_items = []  
+    
+    for cart_item in cart_items:
+        total += (cart_item.product.price * cart_item.quantity)
+        counter += cart_item.quantity
     
     return render(request, 'cart.html', {
         'cart_items': cart_items,
