@@ -80,6 +80,24 @@
 				</tr>
 			  </tbody>
 			</table>
+
+			<form class = "" action = "" method = "POST">
+				{% csrf_token %}
+				<script 
+				src = 'https://checkout.stripe.com/checkout.js'
+				class = 'stripe-button'
+				data-key = '{{ data_key }}'
+				data-amount = '{{ stripe_total}}'
+				data-name = 'Z-store'
+				data-description = '{{description}}'
+				data-locale = 'auto'
+				data-currency = 'usd'
+				data-shippinng-address = 'true'
+				data-billing-address = 'true'
+				data-zip-code = 'true'>
+				</script>
+			</form>
+
 			<form class="" action="" method="POST">
 				{% csrf_token %}
 				<script

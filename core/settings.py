@@ -16,7 +16,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store'
+    'store',
+    'stripe',
 ]
 
 MIDDLEWARE = [
@@ -82,10 +83,13 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+
+
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51HwzkQFykrwlQRRnSA6DUSNZ6V4QqkKPUMXpgzIsvUzrhArw3gv8OfQYcUi2MuHaZgKcMpck3iMKpIsTImpW0V4h00cVInOW40'
+STRIPE_SECRET_KEY =  'sk_test_51HwzkQFykrwlQRRnx9N0Ss1W1sg6dbtDxnZq127hoxsdCzqRQc8mrrdMxo28HIPV9w1L6mJr0nJQQCAXGX3RgRLZ00hF5t4GGM'
