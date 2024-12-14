@@ -1,0 +1,88 @@
+/* Main container for the contact form */
+.contact-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling for the contact section */
+.contact-container h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Styling the form inside the container */
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styling form labels */
+.contact-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Styling for inputs and textarea */
+.contact-container input, 
+.contact-container textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%; /* Ensure full width for better alignment */
+}
+
+/* Prevent textarea resizing */
+.contact-container textarea {
+    resize: none;
+}
+
+/* Styling for the submit button */
+.contact-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Hover effect for button */
+.contact-container button:hover {
+    background-color: #45a049;
+}
+
+/* Footer text inside the contact form */
+.contact-container .footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
+}
+
+/* Media Queries for smaller devices */
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 15px;
+    }
+
+    .contact-container h1 {
+        font-size: 2.2em;
+    }
+
+    .contact-container label {
+        font-size: 1em;
+    }
+
+    .contact-container button {
+        font-size: 1.1em;
+        padding: 12px 18px;
+    }
+}

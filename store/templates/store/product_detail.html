@@ -1,0 +1,69 @@
+{% extends "store/base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Start Main -->
+<div class="container py-5">
+  <div class="row mt-5">
+    <div class="col-10 mx-auto col-md-6 my-3">
+      <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    </div>
+    <div class="col-10 mx-auto col-md-6 my-3">
+      <div>
+        <h1 class="product_title">{{ product.name }}</h1>
+        <h5 class="text-info font-italic mb-3">
+          <span class="mr-1">$</span> {{ product.price }} 
+        </h5>
+        <p class="product_description">Product Description</p>
+        <p class="text-justify product_text">{{ product.description }}</p>
+        
+        {% if product.stock <= 0 %}
+          <p class="text-justify product_text"><b>Out of Stock</b></p>
+        {% else %}
+          <a href="{% url 'add_cart' product.id %}">
+            <button type="button" name="button" class="btn btn-secondary">Add to Cart</button>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Comments Section -->
+  <div class="card mt-5">
+    <div class="card-header">
+      <h4>Reviews</h4>
+    </div>
+    <div class="card-body">
+      <!-- Show comment form only for logged-in users -->
+      {% if user.is_authenticated %}
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}  
+          <button type="submit" class="btn btn-success">Post</button>
+        </form>
+      {% else %}
+        <p>You must be logged in to post a comment.</p>
+      {% endif %}
+    </div>
+    
+    <!-- Displaying Comments -->
+    <div class="card-footer">
+      <ul class="list-group list-group-flush">
+        {% for comment in product.comments.all %}
+          <li class="list-group-item">
+            <h5>{{ comment.user.get_full_name }}</h5> <!-- Display user's full name -->
+            <p class="card-text">{{ comment.text }}</p>
+            <small>Posted on: {{ comment.created_at|date:"F j, Y, g:i a" }}</small>
+          </li>
+        {% empty %}
+          <li class="list-group-item">No comments yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <!-- End Comments Section -->
+  
+</div>
+<!-- End Main -->
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+  <h2>Your Order History</h2>
+
+  {% if orders %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Total</th>
+          <th>Status</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+          <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.total }}</td>
+            <td>{{ order.get_status_display }}</td>  
+            <td>{{ order.created }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>You have no past orders.</p>
+  {% endif %}
+{% endblock %}
