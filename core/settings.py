@@ -1,13 +1,18 @@
 from pathlib import Path
-import os 
+import os
+import environ
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-5f#p$(lttomef5-3&cburj)-0qtwh!w!5=3v%4q32e%elbr-&n'
+SECRET_KEY = 'django-insecure-y_l=o!01!b3$b=_)-irp8$d^qlld1*sq2wic$eb#&9)9z@pvj4'
+
 
 DEBUG = True
 
+
 ALLOWED_HOSTS = []
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -16,9 +21,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store',
-    'stripe',
+    'store',  
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -30,12 +37,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'core.urls'
+
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -49,6 +58,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
@@ -74,22 +84,31 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, 'secrets.env'))
+
+
+
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles')]
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'staticfiles'),)
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+MEDIA_ROOT = os.path.join(BASE_DIR , 'static' , 'media')
 
+STRIPE_PUBLISHABLE_KEY = env('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-STRIPE_PUBLISHABLE_KEY = 'pk_test_51HwzkQFykrwlQRRnSA6DUSNZ6V4QqkKPUMXpgzIsvUzrhArw3gv8OfQYcUi2MuHaZgKcMpck3iMKpIsTImpW0V4h00cVInOW40'
-STRIPE_SECRET_KEY =  'sk_test_51HwzkQFykrwlQRRnx9N0Ss1W1sg6dbtDxnZq127hoxsdCzqRQc8mrrdMxo28HIPV9w1L6mJr0nJQQCAXGX3RgRLZ00hF5t4GGM'
+EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
